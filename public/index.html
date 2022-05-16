@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="style.css" />
+        <title>The weather here</title>
+    </head>
+    <body>
+        <h1>The weather here</h1>
+        <div class="page-select">
+            <a href="index.html">main</a> | <a href="logs/logs.html">logs</a>
+        </div>
+        <br />
+        <div>
+            <h2>You are here:</h2>
+            <div id="coords-display">
+                <p>
+                    Latitude: <span id="lat"></span>°<br />
+                    Longitude: <span id="lon"></span>°
+                </p>
+                <input type="text" id="message" placeholder="Your message" />
+                <button type="submit" id="log">Log</button>
+                <p><span id="srv-response"></span></p>
+            </div>
+        </div>
+        <script src="script.js"></script>
+    </body>
+</html>
