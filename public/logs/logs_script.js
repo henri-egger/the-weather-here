@@ -1,7 +1,7 @@
 fetchFromSrv();
 
 async function fetchFromSrv() {
-    const response = await fetch("/get/allDbEntries");
+    const response = await fetch("/get/all-db-entries");
     const data = (await response.json()).data;
     const sortedData = data.sort((a, b) => {
         if (a.timestamp > b.timestamp) return -1;

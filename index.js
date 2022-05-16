@@ -1,5 +1,6 @@
 const express = require("express");
 const Datastore = require("nedb");
+const axios = require("axios").default;
 const app = express();
 
 app.get("/test", (req, res) => {
@@ -23,8 +24,8 @@ app.post("/post", (request, response) => {
     response.json({ message: "Successfully added entry to database" });
 });
 
-app.get("/get/allDbEntries", (request, response) => {
-    console.log("A get request was made");
+app.get("/get/all-db-entries", (request, response) => {
+    console.log("A db get request was made");
     const data = { data: db.getAllData() };
     response.json(data);
 });
@@ -39,4 +40,20 @@ app.post("/del", (request, response) => {
 });
 */
 
-app.get("/w");
+app.get("/get/weather-here", async (request, response) => {
+    console.log("A weather get request was made");
+
+    const lat = request.query.lat;
+    const lon = request.query.lon;
+    const apiKey = require("./private.json")["weatherapi.com-API-Key"];
+
+    try {
+        const weatherResponse = await axios.get(
+            `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${lat},${lon}&aqi=no`
+        );
+        const data = weatherResponse.data;
+        response.json({ data });
+    } catch (error) {
+        response.json({ error });
+    }
+});
