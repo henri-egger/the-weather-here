@@ -1,7 +1,7 @@
 fetchFromSrv();
 
 async function fetchFromSrv() {
-    const response = await fetch("/get");
+    const response = await fetch("/get/allDbEntries");
     const data = (await response.json()).data;
     const sortedData = data.sort((a, b) => {
         if (a.timestamp > b.timestamp) return -1;
@@ -21,15 +21,18 @@ async function fetchFromSrv() {
             id: ${_id}`;
         document.getElementById("content-display").appendChild(paragraph);
 
+        /*
         let delButton = document.createElement("button");
         delButton.setAttribute("class", "del-button");
         delButton.setAttribute("type", "button");
         delButton.textContent = "Delete entry";
         delButton.addEventListener("click", deleteEntry);
         paragraph.appendChild(delButton);
+        */
     });
 }
 
+/*
 async function deleteEntry(e) {
     const idLength = 16;
     const buttonLength = 12;
@@ -50,3 +53,4 @@ async function deleteEntry(e) {
     const responseMessage = (await response.json()).message;
     console.log(responseMessage);
 }
+*/

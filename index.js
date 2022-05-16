@@ -23,12 +23,13 @@ app.post("/post", (request, response) => {
     response.json({ message: "Successfully added entry to database" });
 });
 
-app.get("/get", (request, response) => {
+app.get("/get/allDbEntries", (request, response) => {
     console.log("A get request was made");
     const data = { data: db.getAllData() };
     response.json(data);
 });
 
+/*
 app.post("/del", (request, response) => {
     console.log("A delete request was made");
     const id = request.body.id;
@@ -36,3 +37,6 @@ app.post("/del", (request, response) => {
     db.remove({});
     response.json({ message: "Successfully deleted entry from database" });
 });
+*/
+
+app.get("/w");

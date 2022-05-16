@@ -3,7 +3,6 @@ let coords;
 if ("geolocation" in navigator) {
     navigator.geolocation.getCurrentPosition((position) => {
         coords = position.coords;
-        console.log(coords);
         const { latitude, longitude } = coords;
         document.getElementById("lat").textContent = latitude.toFixed(4);
         document.getElementById("lon").textContent = longitude.toFixed(4);
