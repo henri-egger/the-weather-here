@@ -52,6 +52,10 @@ async function fetchWeather() {
         `/get/weather-here/?lat=${latitude}&lon=${longitude}`
     );
     const data = (await response.json()).data;
+    const weather = data.current;
 
-    console.log(data);
+    document.getElementById("weather-icon").src = weather.condition.icon;
+    document.getElementById("out-temp").textContent = weather.temp_c;
+    document.getElementById("humidity").textContent = weather.humidity;
+    document.getElementById("wind").textContent = weather.wind_kph;
 }

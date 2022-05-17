@@ -48,9 +48,11 @@ app.get("/get/weather-here", async (request, response) => {
     const apiKey = require("./private.json")["weatherapi.com-API-Key"];
 
     try {
+        console.log("Requesting weather...");
         const weatherResponse = await axios.get(
             `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${lat},${lon}&aqi=no`
         );
+        console.log("Response arrived");
         const data = weatherResponse.data;
         response.json({ data });
     } catch (error) {
